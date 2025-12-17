@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User management webpage</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+    <h1 class="header">Welcome to my webpage</h1>
+    <div class="flex"> 
+        <div id="message" class="message">New here? Sign up to get started!!</div>
+        <div class="button">
+            <button id="loginButton" class="login" onclick="window.location.href='./pages/login.html'">
+                <b>Login</b>
+            </button>
+            <button id="signupButton" class="signup" onclick="window.location.href='./pages/signup.html'">
+                <b>Sign up</b>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("loginButton").addEventListener("click", () => {
+            window.location.href = "./pages/login.html";
+        });
+
+        document.getElementById("signupButton").addEventListener("click", () => {
+            window.location.href = "./pages/signup.html";
+        });
+    </script>
+</body>
+</html>

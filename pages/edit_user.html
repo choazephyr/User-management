@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit user</title>
+    <link rel="stylesheet" href="../assets/css/edit_user.css">
+</head>
+<body>
+    <div class="flex">
+        <h1><b>Edit user</b></h1>
+        <div class="input_form">
+            Email <input class="form_email" name="email" type="text" placeholder="email">
+        </div>
+        <div class="input_form">
+            Username <input class="form_username" name="username" type="text" placeholder="username">
+        </div>
+        <div class="input_form">
+            Note <textarea class="form_note" name="note" placeholder="note"></textarea>
+        </div>
+        <div>
+            Role <select class="select_role" name="role">
+                <option value="user">user</option>
+                <option value="admin">admin</option>
+            </select>
+        </div>
+        <div class="password-row">
+            New password (optional)<input class="form_newpass" name="new_password" type="password">
+            <button type="button" class="toggle-pass" onclick="togglePassword(event)">Show</button>
+        </div>
+    </div>
+    <div id="message" class="message"></div>
+    <button class="button" type="button" onclick="updateUser()">Save</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="../assets/js/edit_user.js"></script>
+
+</body>
+</html>

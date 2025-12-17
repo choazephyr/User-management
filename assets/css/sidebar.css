@@ -1,0 +1,124 @@
+.app { 
+    display: flex; 
+    min-height: 100vh;
+}
+
+#sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 200px;
+    border-right: 1px solid #eee;
+    background: lightskyblue;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.page { 
+    flex: 1; 
+    padding: 16px; 
+    margin-left: 200px;
+}
+
+.sb { 
+    height: 100vh; 
+    position: sticky; 
+    top: 0; 
+    padding: 14px; 
+    box-sizing: border-box; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+}
+
+.sb-top { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+
+}
+.sb-toggle { 
+    border: 1px solid #ddd; 
+    background: #fff; 
+    border-radius: 10px; 
+    padding: 8px 10px; 
+    cursor: pointer; 
+}
+
+.sb-brand { 
+    font-weight: 800; 
+}
+
+.sb-nav { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px; 
+    margin-top: 4px; 
+}
+
+.sb-link { 
+    display: flex; 
+    gap: 10px; 
+    align-items: center; 
+    padding: 10px 12px; 
+    border-radius: 12px; 
+    text-decoration: none; 
+    color: #111; 
+}
+
+.sb-link:hover { 
+    background: #f5f5f5; 
+}
+
+.sb-link.active { 
+    background: lightcyan; 
+}
+
+.sb-link span { 
+    display: inline; 
+}
+
+.sb-logout { 
+    margin-top: auto;  /* with flex container, it push button to the bottom */
+    border: 1px solid #ddd; 
+    background: #fff; 
+    border-radius: 12px; 
+    padding: 10px 12px; 
+    cursor: pointer; 
+    align-items: center;
+}
+
+.sb-logout:hover { 
+    background: #f5f5f5; 
+}
+
+/* Collapsed state */
+body.sb-collapsed #sidebar { 
+    width: 80px; 
+}
+
+body.sb-collapsed .sb-userinfo,
+body.sb-collapsed .sb-link span,
+body.sb-collapsed .sb-brand,
+body.sb-collapsed .sb-logout span { 
+    display: none; 
+}
+
+body.sb-collapsed .sb-logout .sb-text{
+    display: none;
+}
+
+
+body.sb-collapsed .sb-user { 
+    justify-content: center; 
+}
+
+body.sb-collapsed .sb-link { 
+    justify-content: center; 
+}
+
+body.sb-collapsed .page{
+    margin-left: 80px;
+}
+

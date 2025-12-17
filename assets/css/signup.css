@@ -1,0 +1,109 @@
+body {
+    background-color: #f0f0f0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+    font-size: 14px;
+}
+.container {
+    width: 80%;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+    padding: 20px;
+    box-sizing: border-box;
+} 
+.header {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.header-form {
+    width: 140px;
+}
+.flex {
+    display: flex;
+}
+.form-input {
+    margin-bottom: 10px;
+}
+input.form, textarea {
+    border: 1px grey solid;
+    width: 100%;
+}
+.center {
+    text-align: center;
+}
+.button {
+    width: 50%;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid gray;
+}
+
+.button:hover {
+    background-color:azure;
+}
+
+.password-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toggle-pass{
+    margin-left: 10px;
+    border: 1px solid gray;
+    background: #f7f7f7;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 55px;
+    height: 20px;
+    white-space: nowrap; 
+}
+
+.toggle-pass:hover{
+    background: #eee;
+}
+
+.toggle-pass:active{
+    transform: scale(0.98);
+}
+
+.toggle-pass:focus{
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.12);
+}
+
+.message {
+    background-color: lightcyan;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.message.success {
+    background-color: lightgreen;
+    display: block;
+}
+
+.message.danger {
+    background-color: lightsalmon;
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .flex {
+        flex-direction: column;
+    }
+    .header {
+        font-size: 24px;
+    }
+    .button {
+        width: 50%;
+    }
+    .password-row{
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

@@ -1,0 +1,122 @@
+body {
+    background-color: #f0f0f0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+    font-size: 14px;
+}
+.container {
+    /* align-items: center;
+    justify-content: center; */
+    width: 100%;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+    padding: 20px;
+    box-sizing: border-box;
+} 
+.header {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form-input {
+    margin-bottom: 10px;
+    display: flex;
+    margin:12px 0;
+}
+
+.form-input label {
+    flex: 0 0 120px;
+}
+input.form, textarea {
+    border: 1px grey solid;
+    width: 100%;
+}
+.center {
+    text-align: center;
+}
+
+.toggle-pass{
+    margin-left: 10px;
+    padding: auto;
+    border: 1px solid gray;
+    background: #f7f7f7;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 55px;
+    height: 10%;
+    margin-top: 10px;
+}
+
+.toggle-pass:hover{
+    background: #eee;
+}
+
+.toggle-pass:active{
+    transform: scale(0.98);
+}
+
+.toggle-pass:focus{
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.12);
+}
+
+.final_button{
+    display: flex;
+    justify-content: center;  /* center horizontally */
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+    flex-wrap: nowrap;        /* keep on one line if possible */
+}
+
+.final_button .login, .final_button .signup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border: 1px gray solid;
+    background: white;
+    border-radius: 8px;
+    padding: 10px 14px;
+
+    white-space: nowrap;    /* ✅ prevent text wrap inside button */
+}
+
+.message {
+    background-color: lightcyan;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.message.success {
+    background-color: lightgreen;
+    display: block;
+}
+
+.message.danger {
+    background-color: lightsalmon;
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .flex {
+        flex-direction: column;
+    }
+    .header {
+        font-size: 24px;
+    }
+    .final_button .login,
+    .final_button .signup {
+        padding: 10px 14px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .final_button {
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../assets/css/login.css">
+</head>
+<body>
+        
+    <div class="container">
+        <div class="header"><b>Login</b></div>
+
+        <div class="form-input">
+            <label for="email">Email</label>
+            <input class="form" name="email" type="email" placeholder="email@example.com" autocomplete="username">
+        </div>
+
+        <div class="form-input">
+            <label for="password">Password</label>
+            <input class="form" name="password" type="password" placeholder="password" autocomplete="current-password">
+            <button type="button" class="toggle-pass" onclick="togglePassword(event)">Show</button>
+        </div>
+
+        <div id="message" class="message"></div>
+        <div class="final_button">
+            <button class="login" onclick="loginSubmit()">
+                <b>Login</b>
+            </button>
+            <button id="signupButton" class="signup" onclick="window.location.href='signup.html'">
+                <b>Sign up</b>
+            </button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="../assets/js/login.js">
+        document.getElementById("signupButton").addEventListener("click", () => {
+            window.location.href = "signup.html";
+        });
+    </script>
+</body>
+</html>

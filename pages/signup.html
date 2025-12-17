@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <!-- show on page browser -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- name on browser tabs-->
+    <title>Signup</title>
+    <link rel="stylesheet" href="../assets/css/signup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <b>Sign up</b>
+        </div>
+        <div class="flex form-input">
+            <div class="header-form">Email</div> 
+            <input class="form" name="email" type="text" placeholder="email">
+        </div>
+        <div class="flex form-input">
+            <div class="password-row">
+                <div class="header-form">Password</div> 
+                <input class="form" name="password" type="password" placeholder="password">
+                <button type="button" class="toggle-pass" onclick="togglePassword(event)">Show</button>
+            </div>
+        </div>
+        <div class="flex form-input">
+            <div class="header-form">Username</div> 
+            <input class="form" name="username" type="text" placeholder="username">
+        </div>
+        <div class="form-input">
+            Note <br>
+            <div>
+                <textarea name="note" placeholder="describe yourself"></textarea>
+            </div>
+        </div>
+        <div class="form-input center">
+            <a href="../index.html">Back to Home</a>
+        </div>
+        <div id="message" class="message"></div>
+        <div class="center">
+            <button class="button" onclick="submitData()">Submit</button>
+        </div> 
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="../assets/js/sign_up.js"></script>
+</body>
+</html>

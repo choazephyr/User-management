@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="../assets/css/profile.css">
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+</head>
+<body>
+    <div class="app">
+    <!-- ✅ sidebar appears here -->
+        <div id="sidebar"></div>
+
+        <!-- ✅ your page content -->
+        <main class="page">
+            <div class="container">
+                <div class="header">
+                    <h2><b>My Profile</b></h2>
+                </div>
+                <div class="form-input">
+                    <label for="username">Username</label> 
+                    <input class="form" name="username" type="text" placeholder="username">
+                </div>
+                <div class="form-input">
+                    <label for="email">Email</label> 
+                    <input class="form" name="email" type="text" placeholder="email">
+                </div>
+                <div class="form-input">
+                    <label for="newPassword">New Password</label>
+                    <input class="form" name="new_password" type="password" placeholder="new_password">
+                    <button type="button" class="toggle-pass" onclick="togglePassword(event)">Show</button>
+                </div>
+                <div class="form-input">
+                    <label for="note">Note</label> <br>
+                    <div>
+                        <textarea name="note" placeholder="describe yourself"></textarea>
+                    </div>
+                </div>
+                <div class="form-input center">
+                    <a href="../index.html">Back to Home</a>
+                </div>
+                <div id="message" class="message"></div>
+                <div class="center">
+                    <button class="button" onclick="updateUser()">Submit</button>
+                </div> 
+            </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="../assets/js/sidebar.js"></script>
+    <script src="../assets/js/profile.js"></script>
+</body>
+</html>

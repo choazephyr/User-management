@@ -1,0 +1,64 @@
+body {
+    background-color: lightblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+}
+
+.header {
+    text-align: center;
+}
+
+.message {
+    text-align: center;
+    font-size: 15px;
+}
+
+/* container for the two buttons */
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;              /* space between buttons */
+    margin-top: 20px;
+    flex-wrap: nowrap;      /* keep same line if possible */
+}
+
+/* the actual buttons/links */
+.button .login, .button .signup {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 18px;     /* box covers text */
+    border: 1px lightcyan solid;
+    background: white;
+    border-radius: 8px;
+
+    width: auto;            /* ✅ auto-fit to text */
+    height: auto;           /* ✅ auto-fit to text */
+    white-space: nowrap;    /* ✅ prevent text wrap inside button */
+}
+
+/* responsive: still try to keep one line; only wrap if super small */
+@media screen and (max-width: 768px) {
+    .header {
+        font-size: 24px;
+    }
+
+    .button {
+        gap: 12px;
+        padding: 0 12px;
+    }
+
+    /* optional: slightly smaller padding on mobile */
+    .button .login,
+    .button .signup {
+        padding: 10px 14px;
+    }
+}
+
+/* ultra-small screens: allow wrap if it truly can't fit */
+@media screen and (max-width: 360px) {
+    .button {
+        flex-wrap: wrap;
+    }
+}
