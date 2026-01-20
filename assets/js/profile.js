@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8000'
+const BASE_URL = 'http://localhost:3000'
 
 const token = localStorage.getItem('token')
 const user = JSON.parse(localStorage.getItem('user'))

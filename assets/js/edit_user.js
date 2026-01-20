@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8000'
+const BASE_URL = 'http://localhost:3000'
 
 const currentUser = JSON.parse(localStorage.getItem('user'))
 if (!currentUser) window.location.href = 'login.html'

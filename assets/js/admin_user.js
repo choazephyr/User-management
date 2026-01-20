@@ -1,7 +1,7 @@
 // 1. load all users from API
 // 2. put loaded-users back to html
 
-const BASE_URL = 'http://localhost:8000'
+const BASE_URL = 'http://localhost:3000'
 
 window.onload = async () => {
     await loadData()

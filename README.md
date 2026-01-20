@@ -63,7 +63,7 @@ npm run start
 ## Environment Variables 
 This project uses environment variables for configuration. Create a .env file in the backend root directory and add the following:
 ```env
-PORT=8000
+PORT=3000
 JWT_SECRET=your_jwt_secret
 ```
 

@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8000'
+const BASE_URL = 'http://localhost:3000'
 
 const validateLogin = ({ email, password }) => {
     const errors = []
@@ -6,9 +6,8 @@ const validateLogin = ({ email, password }) => {
     if (!password) errors.push('please insert password')
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if(!emailRegex.test(email)) errors.push('please insert password')
-
-    if(password.length < 6) errors.push('please insert password')
+    if (!emailRegex.test(email)) errors.push('invalid email format')
+    if (password.length < 6) errors.push('password must be at least 6 characters')
     return errors
 }
 

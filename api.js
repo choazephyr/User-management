@@ -11,9 +11,6 @@ require('dotenv').config()
 console.log("JWT_SECRET:", process.env.JWT_SECRET ? "OK" : "MISSING")
 
 const port = process.env.PORT
-
-// let users = [] // kept in RAM
-// let counter = 1
 let conn = null
 
 const initMySQL = async () => {
@@ -53,6 +50,7 @@ app.use(cors({
     }
 }))
 
+app.use(express.static(path.resolve()));
 
 app.get('/testdb', (req,res) =>{
     mysql.createConnection({
@@ -101,6 +99,9 @@ function auth(req, res, next) {
     try {
         const payload = jwt.verify(token, process.env.JWT_SECRET)
         req.user = payload // must include { id: ... }
+        if (!header.startsWith('Bearer ')) {
+            return res.status(401).json({ message: 'Invalid auth header' })
+        }
         next()
     } catch {
         return res.status(401).json({ message: "Invalid token" })
@@ -156,18 +157,18 @@ app.put('/users/me', auth, async (req, res) => {
 
 
 // GET /users --> get all users that collect
-app.get('/users', async (req, res) => {
+app.get('/users', auth, async (req, res) => {
   const results = await conn.query('SELECT id,email,username,note,role,created_at FROM users')
   res.json(results[0])
 })
 
 
 // GET /users/:id --> get specific users
-app.get('/users/:id', async(req, res) => {
+app.get('/users/:id', auth, async(req, res) => {
     try {
         let id = req.params.id
-        const results = await conn.query('SELECT * FROM users WHERE id = ?', id)
-        
+        const results = await conn.query('SELECT * FROM users WHERE id = ?', [id])
+    
         if (results[0].length == 0){
             throw{ statusCode: 404, message: 'not found'}
         }
@@ -219,7 +220,7 @@ app.post('/users', async (req, res) => {
 })
 
 // PUT /useres/:id --> edit specific users
-app.put('/users/:id', async(req, res) => {
+app.put('/users/:id', auth, async(req, res) => {
     try{
         let id = req.params.id
         let updateUser = req.body
@@ -245,13 +246,8 @@ app.put('/users/:id', async(req, res) => {
             [updateData, id]
         )
         res.json({
-            message: 'update ok',
-            user: results[0]
-        })
-
-
-        res.json({
-            message: 'update user complete!',
+            message: 'update complete',
+            user: results[0],
             data: {
                 user: updateUser,
                 indexUpdate: selectedIndex
@@ -269,8 +265,12 @@ app.put('/users/:id', async(req, res) => {
 })
 
 // DELETE /users/:id --> delete specific users
-app.delete('/users/:id', async (req, res) => {
+app.delete('/users/:id', auth, async (req, res) => {
     try{
+        if (req.user.role !== 'admin') {
+            return res.status(403).json({ message: 'forbidden' })
+        }
+
         let id = req.params.id
         const results = await conn.query('DELETE FROM users WHERE id = ?',id)
         res.json({
@@ -290,9 +290,6 @@ app.post('/auth/login', async (req, res) => {
     console.log("Body: ", req.body)
     try {
         const { email, password } = req.body
-
-        console.log('email: ', email)
-        console.log('password: ', password)
         
         const errors = []
         if (!email) errors.push('please insert email')
@@ -339,7 +336,7 @@ app.post('/auth/login', async (req, res) => {
 })
 
 
-// app.listen(8000, async (req, res) => {
+// app.listen(3000, async (req, res) => {
 //         await initMySQL()
 //         console.log('http server run at' + port)
 // })
